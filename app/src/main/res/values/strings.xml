@@ -4,4 +4,7 @@
     <string name="height">Height</string>
     <string name="calculate_bmi">CALCULATE BMI</string>
     <string name="help">HELP</string>
+    <string name="mytitle">Get String Source</string>
+    <string name="bmi_extra">BMI_EXTRA</string>
+    <string name="test_extra">TEST_EXTRA</string>
 </resources>

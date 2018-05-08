@@ -14,10 +14,15 @@ public class ResultActivity extends AppCompatActivity {
       setContentView(R.layout.activity_result);
 
       Intent intent = getIntent();
-      float bmi = intent.getFloatExtra("BMI_EXTRA", 0);
-      TextView result = (TextView)findViewById(R.id.result);
-      result.setText("您的BMI值為：" + bmi);
+      Bundle bag = intent.getExtras();
+      float bmi = bag.getFloat(getString(R.string.bmi_extra), 0);
+      String test = bag.getString(getString(R.string.test_extra), null);
+      String title = bag.getString("MY_TITLE", null);
 
-      if(bmi != 0) Toast.makeText(this, String.valueOf(bmi), Toast.LENGTH_LONG).show();
+      //float bmi = intent.getFloatExtra("BMI_EXTRA", 0);
+      TextView result = (TextView)findViewById(R.id.result);
+      result.setText("您的BMI值為：" + bmi + "\nThis is Bundle " + test + "\nTo test the " + title);
+
+      if(bmi != 0) Toast.makeText(this, "Toast：" + String.valueOf(bmi), Toast.LENGTH_LONG).show();
    }
 }

@@ -51,9 +51,16 @@ public class MainActivity extends AppCompatActivity {
          float weight = Float.parseFloat(w);
          float height = Float.parseFloat(h);
          float bmi = weight/(height*height);
+         String title = getString(R.string.mytitle);
+
+         Bundle bag = new Bundle();
+         bag.putFloat(getString(R.string.bmi_extra), bmi);
+         bag.putString(getString(R.string.test_extra), "Testing");
+         bag.putString("MY_TITLE", title);
 
          Intent intent = new Intent(this, ResultActivity.class);
-         intent.putExtra("BMI_EXTRA", bmi);
+         intent.putExtras(bag);
+         //intent.putExtra("BMI_EXTRA", bmi);
          startActivity(intent);
 
          /*Log.d("BMI", String.valueOf(bmi));
@@ -65,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                  .setNeutralButton("Cancel", null)
                  .show();*/
       }
-      else Toast.makeText(this, "Something cannot be null", Toast.LENGTH_LONG).show();
+      else Toast.makeText(this, "Toast：Something cannot be null", Toast.LENGTH_LONG).show();
    }
 }
 
