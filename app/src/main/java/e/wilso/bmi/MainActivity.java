@@ -24,6 +24,16 @@ public class MainActivity extends AppCompatActivity {
       setContentView(R.layout.activity_main);
 
       findViews();
+      bHelp.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle("BMI說明")
+                    .setMessage("體重(kg)/身高的平方(m)")
+                    .setPositiveButton("OK", null)
+                    .show();
+         }
+      });
    }
 
    private void findViews() {
@@ -78,9 +88,10 @@ public class MainActivity extends AppCompatActivity {
                fresult = fw/fh;     // 計算BMI
 
                Log.d("BMI", String.valueOf(fresult));
-               Toast.makeText(getApplicationContext(), String.valueOf(fresult), Toast.LENGTH_LONG).show();
+               Toast.makeText(MainActivity.this, String.valueOf(fresult), Toast.LENGTH_LONG).show();
+               //Toast.makeText(getApplicationContext(), String.valueOf(fresult), Toast.LENGTH_LONG).show();
             }
-            else Toast.makeText(getApplicationContext(), "Something cannot be null", Toast.LENGTH_LONG).show();
+            else Toast.makeText(MainActivity.this, "Something cannot be null", Toast.LENGTH_LONG).show();
          }
       });
    }
